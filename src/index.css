@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+@import 'flowbite';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+:root {
+  font-family: 'Space Grotesk', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424; 
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.dark {
+  --text-color: rgba(245, 240, 240, 0.87); /* Dark text (light theme) */
+  --background-color: #ffffff; /* Light background (light theme) */
+  overflow: hidden; /* Prevent scrolling */
+}
+
+body {
+  color: var(--text-color, rgba(255, 255, 255, 0.87)); /* Fallback to dark theme text */
+  background-color: var(--background-color, #242424); /* Fallback to dark theme background */
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+a {
+  font-weight: 500;
+  text-decoration: inherit;
+}
+nav a:hover {
+  color: #2ecc40;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+/* Parent container for MapComponent and ViewAnalytics */
+
+.content-container {
+  margin-top: 80px;
+  padding-left: 20vw;
+  width: 80vw; 
+  display: flex; 
+  flex-direction: column;
+  position: relative; 
+}
+
+.view-analytics-container{
+  margin-top: 80vh;
+  z-index: 2;
+  /* width: 60vw; */
+}
+.custom-border::before {
+  content: '';
+  position: absolute;
+  top: 8%; /* Start the border 10% from the top */
+  right: 0;
+  bottom: 2%; /* End the border 10% from the bottom, making it span 80% of the height */
+  width: 1px; /* Border width */
+  background-color: rgba(107, 114, 128, 0.25); /* border-gray-500 with 55% opacity */
+}
+/* ------------------------------ DROPDOWN ------------------------------ */
+
+.dropdowns {
+  padding-left: 1rem; /* Tailwind `px-4` equivalent */
+  padding-right: 1rem; 
+  padding-top: 0.5rem; /* Tailwind `py-2` equivalent */
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem; /* Tailwind `text-sm` equivalent */
+  color: #4a5568; /* Tailwind `text-gray-700` equivalent */
+  cursor: pointer;
+  background-color: #f7fafc; /* Tailwind `bg-gray-100` equivalent */
+}
+/* Dark mode styles */
+.dark .dropdowns {
+    background-color: #2d3748; /* Tailwind `bg-gray-700` equivalent */
+    color: #e2e8f0; /* Tailwind `text-gray-300` equivalent */
+}
+.dropdowns:hover {
+  background-color: #ffffff; /* Tailwind `hover:bg-gray-100` equivalent */
+  color: #1a202c; /* Tailwind `hover:text-gray-900` equivalent */
+}
+/* Dark mode hover styles */
+.dark .dropdowns:hover {
+  background-color: #4a5568; /* Dark mode hover */
+  color: #f7fafc;
+}
+/* ------------------------------ ---  ------------------------------ */
+@media (prefers-color-scheme: light) {
+  :root {
+    --text-color: rgba(8, 8, 8, 0.87);
+    --background-color: #ffffff;
+  }
+  body {
+    color: var(--text-color);
+    background-color: var(--background-color);
+  }
+  nav a:hover {
+    color: #2ecc40;
+  }
+
+}
