@@ -37,7 +37,7 @@ export function handleAddAPI(link) {
 
 
 
-export const Notifications = [
+export const notificationData = [
 
     {
         id: 1,
