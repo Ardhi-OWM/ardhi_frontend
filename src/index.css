@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
 @import 'flowbite';
+@import 'leaflet/dist/leaflet.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -24,6 +25,7 @@ html.dark {
   --background-color: #ffffff; /* Light background (light theme) */
   overflow: hidden; /* Prevent scrolling */
 }
+/* --------------    Body Seetings -------------- */
 
 body {
   color: var(--text-color, rgba(255, 255, 255, 0.87)); /* Fallback to dark theme text */
@@ -31,8 +33,15 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  overflow: hidden; /* Prevent scrolling */
 }
+
+@media (min-width: 768px) {
+  /* Disable scrolling on screens larger than 768px (tablet and desktop) */
+  body {
+    overflow: hidden;
+  }
+}
+/* ---------------- ----------------- ----------------- */
 
 a {
   font-weight: 500;

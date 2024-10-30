@@ -16,7 +16,7 @@ export const headerLinks = [
         id: "3",
         label: 'Converter',
         route: '/converter',
-    }
+    },
 ];
 
 // Action functions to handle link additions
