@@ -15,3 +15,34 @@ export const initializeTheme = (setTheme) => {
     setTheme(defaultTheme);
 };
 
+export const areNotificationsDifferent = (newNotifications, storedNotifications) => {
+    return JSON.stringify(newNotifications) !== storedNotifications;
+};
+
+export const initializeNotifications = (notifications, setHasNewNotifications) => {
+    const storedNotifications = localStorage.getItem('previousNotifications');
+    if (!storedNotifications || areNotificationsDifferent(notifications, storedNotifications)) {
+        setHasNewNotifications(true);
+        localStorage.setItem('previousNotifications', JSON.stringify(notifications));
+    }
+};
+
+export const handleNotificationClick = (notificationId, clickedNotifications, setClickedNotifications) => {
+    const updatedClickedNotifications = [...clickedNotifications, notificationId];
+    setClickedNotifications(updatedClickedNotifications);
+    localStorage.setItem('clickedNotifications', JSON.stringify(updatedClickedNotifications));
+};
+
+export const loadClickedNotifications = (setClickedNotifications) => {
+    const storedClickedNotifications = localStorage.getItem('clickedNotifications');
+    if (storedClickedNotifications) {
+        setClickedNotifications(JSON.parse(storedClickedNotifications));
+    }
+};
+
+export const handleClickOutside = (event, popUpRef, setShowNotifications) => {
+    if (popUpRef.current && !popUpRef.current.contains(event.target)) {
+        setShowNotifications(false);
+    }
+};
+

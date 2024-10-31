@@ -26,13 +26,13 @@ html.dark {
   overflow: hidden; /* Prevent scrolling */
 }
 /* --------------    Body Seetings -------------- */
-
 body {
-  color: var(--text-color, rgba(255, 255, 255, 0.87)); /* Fallback to dark theme text */
-  background-color: var(--background-color, #242424); /* Fallback to dark theme background */
+  color: var(--text-color, rgba(255, 255, 255, 0.87));
+  background-color: var(--background-color, #242424);
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 @media (min-width: 768px) {

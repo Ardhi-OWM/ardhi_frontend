@@ -15,12 +15,12 @@ const Layout = ({ children }) => {
         setHideHeaderFooter(location.pathname === '/login' || location.pathname === '/logout');
     }, [location.pathname]);
 
- /*    useEffect(() => {
-        const shouldHide = location.pathname === '/login' || location.pathname === '/logout';
-        console.log("Pathname:", location.pathname, "Hide Header/Footer:", shouldHide);
-        setHideHeaderFooter(shouldHide);
-    }, [location.pathname]); */
-    
+    /*    useEffect(() => {
+           const shouldHide = location.pathname === '/login' || location.pathname === '/logout';
+           console.log("Pathname:", location.pathname, "Hide Header/Footer:", shouldHide);
+           setHideHeaderFooter(shouldHide);
+       }, [location.pathname]); */
+
 
     return (
         <div className="flex flex-col min-h-screen overflow-visible md:overflow-hidden">
@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
             {!hideHeaderFooter && <Footer />}
         </div>
     );
-    
+
 };
 Layout.propTypes = {
     children: PropTypes.node.isRequired,

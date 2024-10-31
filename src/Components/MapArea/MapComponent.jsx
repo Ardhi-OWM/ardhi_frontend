@@ -38,24 +38,22 @@ const SearchField = ({ setCenter, theme }) => {
                 value={query}
                 onChange={handleInputChange}
                 placeholder="Search for an address..."
-                className={`w-full p-2 rounded-md shadow-md ${
-                    theme === 'dark' ? 'bg-gray-800 text-gray-100 placeholder-gray-400' : 'bg-gray-100 text-gray-900 placeholder-gray-600'
-                } focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                className={`w-full p-2 rounded-md shadow-md ${theme === 'dark' ? 'bg-gray-800 text-gray-100 placeholder-gray-400' : 'bg-gray-100 text-gray-900 placeholder-gray-600'
+                    } focus:outline-none focus:ring-2 focus:ring-blue-500`}
             />
             {suggestions.length > 0 && (
-                <ul className={`absolute w-full rounded-md shadow-lg mt-1 max-h-48 overflow-y-auto z-[1000] ${
-                    theme === 'dark' ? 'bg-gray-800 border border-gray-700 text-gray-100' : 'bg-white border border-gray-300 text-gray-900'
-                }`}>
+                <ul className={`absolute w-full rounded-md shadow-lg mt-1 max-h-48 overflow-y-auto z-[1000] ${theme === 'dark' ? 'bg-gray-800 border border-gray-700 text-gray-100' : 'bg-white border border-gray-300 text-gray-900'
+                    }`}>
                     {suggestions.map((suggestion) => (
                         <li
                             key={suggestion.x + suggestion.y}
                             onClick={() => handleSuggestionClick(suggestion)}
-                            className={`px-4 py-2 cursor-pointer hover:${
-                                theme === 'dark' ? 'bg-gray-700 text-blue-400' : 'bg-gray-200 text-blue-600'
-                            }`}
+                            className={`px-4 py-2 cursor-pointer ${theme === 'dark' ? 'hover:bg-gray-700 hover:text-blue-400' : 'hover:bg-gray-200 hover:text-blue-600'
+                                }`}
                         >
                             {suggestion.label}
                         </li>
+
                     ))}
                 </ul>
             )}
@@ -91,9 +89,8 @@ const MapComponent = ({ theme }) => {
                     <Menu as="div" className="inline-block text-left">
                         <MenuButton
                             onClick={() => setDropdownOpen(!isDropdownOpen)}
-                            className={`inline-flex justify-center gap-x-1.5 rounded-md px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ${
-                                theme === 'dark' ? 'bg-gray-800 text-gray-100 ring-gray-700' : 'bg-gray-100 text-gray-900 ring-gray-300'
-                            } hover:${theme === 'dark' ? 'bg-gray-700' : 'bg-gray-200'}`}
+                            className={`inline-flex justify-center gap-x-1.5 rounded-md px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ${theme === 'dark' ? 'bg-gray-800 text-gray-100 ring-gray-700' : 'bg-gray-100 text-gray-900 ring-gray-300'
+                                } hover:${theme === 'dark' ? 'bg-gray-700' : 'bg-gray-200'}`}
                         >
                             {activeLayer.name}
                             <ChevronDownIcon aria-hidden="true" className="-mr-1 h-5 w-5 text-gray-400" />
@@ -101,18 +98,16 @@ const MapComponent = ({ theme }) => {
 
                         {isDropdownOpen && (
                             <div
-                                className={`absolute left-0 mt-2 w-56 origin-top-left divide-y rounded-md shadow-lg ring-1 ring-opacity-5 focus:outline-none ${
-                                    theme === 'dark' ? 'bg-gray-800 text-gray-100 ring-black divide-gray-600' : 'bg-white text-gray-900 ring-gray-300 divide-gray-200'
-                                }`}
+                                className={`absolute left-0 mt-2 w-56 origin-top-left divide-y rounded-md shadow-lg ring-1 ring-opacity-5 focus:outline-none ${theme === 'dark' ? 'bg-gray-800 text-gray-100 ring-black divide-gray-600' : 'bg-white text-gray-900 ring-gray-300 divide-gray-200'
+                                    }`}
                                 style={{ maxHeight: '150px', overflowY: 'auto' }}
                             >
                                 {mapLayers.map((layer) => (
                                     <button
                                         key={layer.name}
                                         onClick={() => handleLayerChange(layer)}
-                                        className={`block px-4 py-2 text-sm w-full text-left ${
-                                            layer === activeLayer ? (theme === 'dark' ? 'bg-gray-700 text-blue-400 font-bold' : 'bg-gray-200 text-blue-600 font-bold') : theme === 'dark' ? 'text-gray-100 hover:bg-gray-700' : 'text-gray-900 hover:bg-gray-200'
-                                        }`}
+                                        className={`block px-4 py-2 text-sm w-full text-left ${layer === activeLayer ? (theme === 'dark' ? 'bg-gray-700 text-blue-400 font-bold' : 'bg-gray-200 text-blue-600 font-bold') : theme === 'dark' ? 'text-gray-100 hover:bg-gray-700' : 'text-gray-900 hover:bg-gray-200'
+                                            }`}
                                     >
                                         {layer.name}
                                     </button>
