@@ -17,6 +17,7 @@ if (!clerkPubKey) {
   throw new Error("Add your Clerk publishable key to the .env.local file")
 }
 
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ClerkProvider

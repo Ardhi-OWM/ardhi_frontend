@@ -13,6 +13,7 @@ function App() {
     setIsSignIn((prev) => !prev);
   };
 
+
   useEffect(() => {
     if (isSignedIn) {
       setLoading(true);
@@ -48,6 +49,7 @@ function App() {
           {isSignIn ? "Don't have an account? Sign Up" : 'Already have an account? Sign In'}
         </button>
       </div>
+  
     </div>
   );
 }
