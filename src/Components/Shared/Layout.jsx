@@ -23,9 +23,12 @@ const Layout = ({ children }) => {
 
 
     return (
-        <div className="flex flex-col min-h-screen overflow-visible md:overflow-hidden">
-            {!hideHeaderFooter && <Header />}
-            <main className="flex-grow">{children}</main>
+        <div className="flex flex-col min-h-screen md:overflow-hidden">
+            {!hideHeaderFooter && <Header  />}
+            <main className={`flex-grow overflow-y-auto ${!hideHeaderFooter ? 'pt-16' : ''}`}>
+                {/* Add top padding (e.g., 4rem) to avoid overlap with fixed header */}
+                {children}
+            </main>
             {!hideHeaderFooter && <Footer />}
         </div>
     );

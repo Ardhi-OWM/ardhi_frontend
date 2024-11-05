@@ -65,13 +65,13 @@ function Sidebar() {
     return (
         <div className="flex flex-col min-h-screen p-4 border-r border-gray-500/[.25] overflow-y-auto">
             {/* ------ Sidebar Components upper part ------ */}
-            <div className="absolute md:inset-x-0 p-4">
+            <div className="relative p-4">
                 <h2>Upper Div</h2>
             </div>
 
-            {/* ------ Sidebar Components lower part ------ */}
-            <div className="absolute md:inset-x-0 md:bottom-0 p-4 space-y-4 flex flex-col mb-8">
-                {/* Theme Change Button with Icon */}
+            {/* ---------------------------------------  Sidebar Components lower part --------------------------------------- */}
+            <div className="relative p-4 space-y-4 flex flex-col mt-auto mb-20">
+            {/* Theme Change Button with Icon */}
                 <div className="mb-4 flex items-center">
                     <button
                         id="theme-toggle"
@@ -149,14 +149,6 @@ function Sidebar() {
                         <span className="ml-2">Help</span>
                     </button>
 
-
-                    {/* Footer with Copyright */}
-                    <div className="text-xs italic text-gray-600 md:hidden">
-                        &copy; {currentYear}{' '}
-                        <a className="text-green-300/[.50]" href="https://ardhi.de/" target="_blank" rel="noopener noreferrer">
-                            Ardhi Analytics
-                        </a>
-                    </div>
                 </div>
             </div>
     );

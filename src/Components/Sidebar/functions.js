@@ -11,7 +11,9 @@ export const initializeTheme = (setTheme) => {
     const savedTheme = localStorage.getItem('theme');
     const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const defaultTheme = savedTheme || (prefersDarkMode ? 'dark' : 'light');
+    // Toggle the dark class for dark theme, and light class for light theme
     document.documentElement.classList.toggle('dark', defaultTheme === 'dark');
+    document.documentElement.classList.toggle('light', defaultTheme === 'light');
     setTheme(defaultTheme);
 };
 

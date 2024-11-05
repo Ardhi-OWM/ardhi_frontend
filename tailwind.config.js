@@ -4,7 +4,7 @@ import plugin from "tailwindcss/plugin";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
-  darkMode: 'selector',
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -37,6 +37,9 @@ export default {
         4: "#7ADB78",
         5: "#858DFF",
         6: "#FF98E2",
+
+        backgroundLight: '#ffffff',
+        backgroundDark: '#242424',
       },
       stroke: {
         1: "#26242C",

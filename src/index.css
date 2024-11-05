@@ -5,14 +5,16 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
+/* Base Theme Variables (Fallbacks) */
 :root {
+  --text-color-light: rgba(8, 8, 8, 0.87);
+  --background-color-light: #ffffff;
+  --text-color-dark: rgba(255, 255, 255, 0.87);
+  --background-color-dark: #242424;
+
   font-family: 'Space Grotesk', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424; 
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,93 +22,120 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Light Mode */
+html.light {
+  --text-color: var(--text-color-light);
+  --background-color: var(--background-color-light);
+}
+
+html.light body {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+/* Dark Mode */
 html.dark {
-  --text-color: rgba(245, 240, 240, 0.87); /* Dark text (light theme) */
-  --background-color: #ffffff; /* Light background (light theme) */
-  overflow: hidden; /* Prevent scrolling */
+  --text-color: var(--text-color-dark);
+  --background-color: var(--background-color-dark);
 }
-/* --------------    Body Seetings -------------- */
+
+html.dark body {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+/* General Body Settings */
 body {
-  color: var(--text-color, rgba(255, 255, 255, 0.87));
-  background-color: var(--background-color, #242424);
-  margin: 0;
-  min-width: 320px;
+  overflow-y: auto;
   min-height: 100vh;
-  transition: color 0.3s ease, background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-@media (min-width: 768px) {
-  /* Disable scrolling on screens larger than 768px (tablet and desktop) */
-  body {
-    overflow: hidden;
-  }
-}
-/* ---------------- ----------------- ----------------- */
-
+/* Links */
 a {
   font-weight: 500;
   text-decoration: inherit;
 }
+
+/* Link hover effects */
 nav a:hover {
   color: #2ecc40;
 }
 
+/* Headings */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
-/* Parent container for MapComponent and ViewAnalytics */
 
+/* Other specific components */
 .content-container {
   margin-top: 80px;
   padding-left: 20vw;
-  width: 80vw; 
-  display: flex; 
+  width: 80vw;
+  display: flex;
   flex-direction: column;
-  position: relative; 
+  position: relative;
 }
 
-.view-analytics-container{
+.view-analytics-container {
   margin-top: 80vh;
   z-index: 2;
-  /* width: 60vw; */
 }
+
 .custom-border::before {
   content: '';
   position: absolute;
-  top: 8%; /* Start the border 10% from the top */
+  top: 8%;
   right: 0;
-  bottom: 2%; /* End the border 10% from the bottom, making it span 80% of the height */
-  width: 1px; /* Border width */
-  background-color: rgba(107, 114, 128, 0.25); /* border-gray-500 with 55% opacity */
+  bottom: 2%;
+  width: 1px;
+  background-color: rgba(107, 114, 128, 0.25);
 }
-/* ------------------------------ DROPDOWN ------------------------------ */
 
+/* Dropdowns */
 .dropdowns {
-  padding-left: 1rem; /* Tailwind `px-4` equivalent */
-  padding-right: 1rem; 
-  padding-top: 0.5rem; /* Tailwind `py-2` equivalent */
-  padding-bottom: 0.5rem;
-  font-size: 0.875rem; /* Tailwind `text-sm` equivalent */
-  color: #4a5568; /* Tailwind `text-gray-700` equivalent */
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: #4a5568;
   cursor: pointer;
-  background-color: #f7fafc; /* Tailwind `bg-gray-100` equivalent */
+  background-color: #f7fafc;
 }
-/* Dark mode styles */
+
+/* Dark mode for dropdowns */
 .dark .dropdowns {
-    background-color: #2d3748; /* Tailwind `bg-gray-700` equivalent */
-    color: #e2e8f0; /* Tailwind `text-gray-300` equivalent */
+  background-color: #2d3748;
+  color: #e2e8f0;
 }
+
+/* Dropdown hover styles */
 .dropdowns:hover {
-  background-color: #ffffff; /* Tailwind `hover:bg-gray-100` equivalent */
-  color: #1a202c; /* Tailwind `hover:text-gray-900` equivalent */
+  background-color: #ffffff;
+  color: #1a202c;
 }
+
 /* Dark mode hover styles */
 .dark .dropdowns:hover {
-  background-color: #4a5568; /* Dark mode hover */
+  background-color: #4a5568;
   color: #f7fafc;
 }
-/* ------------------------------ ---  ------------------------------ */
+
+/* Dark Mode Media Query */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: rgba(255, 255, 255, 0.87);
+    --background-color: #242424;
+  }
+  body {
+    color: var(--text-color);
+    background-color: var(--background-color);
+  }
+  nav a:hover {
+    color: #2ecc40;
+  }
+}
+
+/* Light Mode Media Query */
 @media (prefers-color-scheme: light) {
   :root {
     --text-color: rgba(8, 8, 8, 0.87);
@@ -119,5 +148,4 @@ h1 {
   nav a:hover {
     color: #2ecc40;
   }
-
 }

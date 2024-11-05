@@ -40,7 +40,7 @@ export function handleAddAPI(link) {
 export const notificationData = [
     {
         id: 7,
-        name: 'Next try ',
+        name: 'Next try next time',
         url: 'https://github.com/Ardhi-OWM/ardhi_web_map/tree/och_ardhi'
     },
 
