@@ -1,3 +1,5 @@
+// src/Components/Shared/SidebarMobile.jsx
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Sun, Moon, Bell, BadgeHelp, Plus } from 'lucide-react';
 import { notificationData } from '../constants';
@@ -7,11 +9,10 @@ import {
     initializeNotifications,
     handleNotificationClick,
     loadClickedNotifications,
-    handleClickOutside
+    handleClickOutside,
 } from './functions';
 
-function Sidebar() {
-    //const currentYear = new Date().getFullYear();
+function SidebarMobile() {
     const [theme, setTheme] = useState('dark');
     const [notifications, setNotifications] = useState(notificationData);
     const [showNotifications, setShowNotifications] = useState(false);
@@ -19,14 +20,14 @@ function Sidebar() {
     const [clickedNotifications, setClickedNotifications] = useState([]);
     const popUpRef = useRef(null);
 
-    // Theme initialization
+    // Initialize theme
     useEffect(() => {
         initializeTheme(setTheme);
     }, []);
 
     const handleThemeToggle = () => toggleTheme(theme, setTheme);
 
-    // Notifications Initialization
+    // Initialize notifications
     useEffect(() => {
         initializeNotifications(notifications, setHasNewNotifications);
     }, [notifications]);
@@ -63,53 +64,21 @@ function Sidebar() {
     }, [popUpRef]);
 
     return (
-        <div className="flex fixed flex-col min-h-screen p-4 border-r border-gray-500/[.25]">
-            {/* --------------------------------------- Sidebar Components upper part --------------------------------------- */}
-            
-            <div className="space-y-2 mb-4 hidden md:block md:overflow-hidden">
-                <button className="w-full p-2 flex items-center gap-4 hover:underline">
-                    <Plus />
-                    <span>Add  Dataset</span>
-                </button>
-                <button className="w-full p-2 flex items-center gap-4 hover:underline">
-                    <Plus />
-                    <span>Add  Model</span>
-                </button>
-                <button className="w-full p-2 flex items-center gap-4 hover:underline">
-                    <Plus />
-                    <span>Add  API</span>
-                </button>
-            </div>
+        <div className="flex flex-col p-4 md:hidden">
+            {/* Mobile Button Group (Add Dataset, Model, API) */}
+           
 
-            {/* ---------------------------------------  Sidebar Components lower part --------------------------------------- */}
-            <div className="relative p-4 space-y-4 flex flex-col mt-auto mb-40">
-                {/* Theme Change Button with Icon */}
-                <div className="mb-4 flex items-center">
-                    <button
-                        id="theme-toggle"
-                        onClick={handleThemeToggle}
-                        className="flex items-center gap-2 underline cursor-pointer underline-offset-4 text-sm"
-                    >
-                        {theme === 'dark' ? (
-                            <>
-                                <Sun className="w-4 h-4  text-ourGreen" />
-                                <span className=" hidden sm:inline ">To Light Mode </span>
-                            </>
-                        ) : (
-                            <>
-                                <Moon className="w-4 h-4 text-ourGreen" />
-                                <span className="hidden sm:inline  ">To Dark Mode </span>
-                            </>
-                        )}
-                    </button>
-                </div>
+            {/* Lower Part Icons (Theme Toggle, Notifications, Help) */}
+            <div className="flex justify-end items-center space-x-2 mt-3">
+                {/* Theme Toggle */}
+                <button onClick={handleThemeToggle} className="flex items-center gap-2">
+                    {theme === 'dark' ? <Sun className="w-6 h-6 text-ourGreen" /> : <Moon className="w-6 h-6 text-ourGreen" />}
+                </button>
 
-
-                {/* Notification Button with Icon */}
-                <div className="mb-4 relative">
-                    <button className="relative flex cursor-pointer" onClick={handleBellClick}>
+                {/* Notifications */}
+                <div className="relative">
+                    <button onClick={handleBellClick} className="flex items-center gap-2">
                         <Bell className="text-ourGreen" />
-                        <span className="ml-2 hidden sm:inline  ">Notifications</span>
                         {hasNewNotifications && (
                             <span className="absolute top-0 right-0 bg-red-500 rounded-full h-3 w-3"></span>
                         )}
@@ -117,16 +86,12 @@ function Sidebar() {
                     {showNotifications && (
                         <div
                             ref={popUpRef}
-                            className={`fixed bottom-10 w-64 ${theme === 'dark' ? 'bg-gray-800' : 'bg-white'} 
-                            border border-gray-300 rounded-lg shadow-lg p-4 z-[9999]`}
-                            style={{
-                                transform: 'translateX(10px)',
-                                maxWidth: '90vw',
-                                overflowY: 'auto',
-                                maxHeight: '20vh',
-                            }}
+                            className={`absolute top-full right-0 mt-2 w-64 ${
+                                theme === 'dark' ? 'bg-gray-800' : 'bg-white'
+                            } border border-gray-300 rounded-lg shadow-lg p-4 z-50`}
+                            style={{ maxWidth: '90vw', overflowY: 'auto', maxHeight: '20vh' }}
                         >
-                            <h3 className="font-bold mb-2">Latest Notifications</h3>
+                            <h3 className="font-bold mb-2 ">Latest Notifications</h3>
                             <ul>
                                 {sortedNotifications.slice(0, 5).map((notification) => (
                                     <li
@@ -152,18 +117,28 @@ function Sidebar() {
                     )}
                 </div>
 
-                {/* Help Button with Icon */}
-                <button
-                    className="flex items-center mb-4 cursor-pointer"
-                    onClick={() => window.open('https://ardhi.slab.com/posts/help-page-idwmu284?shr=_TwiAyo7tThV4H3IWU7pmshx', '_blank')}
-                >
+                {/* Help Button */}
+                <button onClick={() => window.open('https://ardhi.slab.com/posts/help-page-idwmu284?shr=_TwiAyo7tThV4H3IWU7pmshx', '_blank')}>
                     <BadgeHelp className="text-ourGreen" />
-                    <span className="ml-2 hidden sm:inline">Help</span>
                 </button>
+            </div>
 
+            <div className="flex flex-col space-y-2 ">
+                <button className="flex p-2 items-center gap-4 hover:underline">
+                    <Plus />
+                    <span className="text-xs">Add Dataset</span>
+                </button>
+                <button className="flex p-2 items-center gap-4 hover:underline">
+                    <Plus />
+                    <span className="text-xs">Add Model</span>
+                </button>
+                <button className="flex p-2 items-center gap-4 hover:underline">
+                    <Plus />
+                    <span className="text-xs">Add API</span>
+                </button>
             </div>
         </div>
     );
 }
 
-export default Sidebar;
+export default SidebarMobile;

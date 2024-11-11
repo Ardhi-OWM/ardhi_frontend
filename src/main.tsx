@@ -6,6 +6,8 @@ import ReactDOM from 'react-dom/client';
 
 import App from './App';
 import Dashboard from './Components/Dashboard';
+import ApiConnections from './Components/ApiConnections';
+import Converter from './Components/Converter';
 import Login from './Components/Loggings/Login';
 import Logout from './Components/Loggings/Logout';
 import './index.css';
@@ -29,6 +31,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           {/* Apply Layout for pages with Header and Footer */}
           <Route path="/" element={<Layout><App /></Layout>} />
           <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} />
+          <Route path="/api-connections" element={<Layout><ApiConnections /></Layout>} />
+          <Route path="/converter" element={<Layout><Converter /></Layout>} />
 
           {/* No Layout for Login and Logout */}
           <Route path="/login" element={<Login />} />

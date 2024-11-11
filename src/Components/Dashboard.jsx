@@ -1,15 +1,23 @@
 import React from 'react';
 import MapComponent from './MapArea/MapComponent';
 import Sidebar from './Sidebar/Sidebar';
+import SidebarMobile from './Sidebar/SidebarMobile';
 import ViewAnalytics from './ViewAnalytics';
 import History from './History/History';
 
 function Dashboard() {
     return (
-        <div className="flex flex-col md:flex-row min-h-screen">
+        // Activities on the Map Component 
+        
+        <div className="flex flex-col  md:flex-row min-h-screen">
             {/* Sidebar - fixed position, takes full width on mobile and 1/5 width on desktop */}
-            <div className="fixed left-0 w-full md:w-1/5 h-screen">
-                <Sidebar />
+            <div className="w-full md:w-1/5 md:relative md:h-screen ">
+                <div className="hidden md:block">
+                    <Sidebar />
+                </div>
+                <div className="md:hidden">
+                    <SidebarMobile />
+                </div>
             </div>
 
             {/* Main Content - including MapComponent and ViewAnalytics */}

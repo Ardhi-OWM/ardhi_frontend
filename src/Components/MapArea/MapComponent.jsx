@@ -39,7 +39,7 @@ const SearchField = ({ setCenter, theme }) => {
                 onChange={handleInputChange}
                 placeholder="Search for an address..."
                 className={`w-full p-2 rounded-md shadow-md ${theme === 'dark' ? 'bg-gray-800 text-gray-100 placeholder-gray-400' : 'bg-gray-100 text-gray-900 placeholder-gray-600'
-                    } focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                    } focus:outline-none focus:ring-2 focus:ring-green-500`}
             />
             {suggestions.length > 0 && (
                 <ul className={`absolute w-full rounded-md shadow-lg mt-1 max-h-48 overflow-y-auto z-[1000] ${theme === 'dark' ? 'bg-gray-800 border border-gray-700 text-gray-100' : 'bg-white border border-gray-300 text-gray-900'
@@ -48,7 +48,7 @@ const SearchField = ({ setCenter, theme }) => {
                         <li
                             key={suggestion.x + suggestion.y}
                             onClick={() => handleSuggestionClick(suggestion)}
-                            className={`px-4 py-2 cursor-pointer ${theme === 'dark' ? 'hover:bg-gray-700 hover:text-blue-400' : 'hover:bg-gray-200 hover:text-blue-600'
+                            className={`px-4 py-2 cursor-pointer ${theme === 'dark' ? 'hover:bg-gray-700 hover:text-green-400' : 'hover:bg-gray-200 hover:text-blue-600'
                                 }`}
                         >
                             {suggestion.label}
