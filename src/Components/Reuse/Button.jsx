@@ -1,5 +1,5 @@
-import ButtonSvg from "../svg/ButtonSvg";
-import ButtonGradient from "../svg/ButtonGradient";
+import ButtonSvg from "./svg/ButtonSvg";  // Import the ButtonSvg component
+import ButtonGradient from "./svg/ButtonGradient";  // Import the ButtonGradient component
 
 const Button = ({ className, href, onClick, children, px, white }) => {
     const classes = `button relative inline-flex items-center justify-center 
