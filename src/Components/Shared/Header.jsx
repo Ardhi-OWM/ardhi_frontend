@@ -4,9 +4,22 @@ import { transparentLogo } from '../../assets/index.js';
 import { Link } from 'react-router-dom';
 import NavItems from './NavItems.jsx';
 import MobileNav from './MobileNav.jsx';
+import { initializeTheme, toggleTheme } from './ThemeFunction.js';
+import { useState, useEffect } from 'react';
+import { Sun, Moon } from 'lucide-react';
 
 
 const Header = () => {
+    const [theme, setTheme] = useState('dark');
+
+    // Initialize theme on load
+    useEffect(() => {
+        initializeTheme(setTheme);
+    }, []);
+
+    const handleThemeToggle = () => toggleTheme(theme, setTheme);
+
+
     return (
         <header className="w-full fixed top-0 left-0 z-50 border-b border-gray-500/[.25] py-2 shadow-lg">
             <div className="wrapper flex justify-between items-center">
@@ -25,7 +38,11 @@ const Header = () => {
                 </SignedIn>
 
                 {/* Right-side actions (UserButton or Login) */}
+
                 <div className="flex w-32 justify-end gap-3 mr-4">
+                    <button onClick={handleThemeToggle} className="flex items-center cursor-pointer justify-end md:mx-4">
+                        {theme === 'dark' ? <Sun className="w-5 h-5 text-ourGreen" /> : <Moon className="w-5 h-5 text-ourGreen" />}
+                    </button>
                     <SignedIn>
                         <UserButton />
                     </SignedIn>

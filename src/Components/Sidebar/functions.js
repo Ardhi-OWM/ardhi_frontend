@@ -1,5 +1,7 @@
 // src/Components/Sidebar/functions.js
 // themeFunctions.js
+
+// --------------------------- Theme Functions ---------------------------
 export const toggleTheme = (theme, setTheme) => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     document.documentElement.classList.toggle('dark', newTheme === 'dark');
@@ -16,6 +18,8 @@ export const initializeTheme = (setTheme) => {
     document.documentElement.classList.toggle('light', defaultTheme === 'light');
     setTheme(defaultTheme);
 };
+// ---------------------------  ------------------- ---------------------------
+// --------------------------- Theme Functions End ---------------------------
 
 export const areNotificationsDifferent = (newNotifications, storedNotifications) => {
     return JSON.stringify(newNotifications) !== storedNotifications;

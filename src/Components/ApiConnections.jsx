@@ -1,12 +1,14 @@
 import React from 'react'
-import Layout from './ApiConnect/Layout'
+import ConnectToGISCloudServices from './ApiConnect/Layout'
 
 const ApiConnections = () => {
   return (
-    <div>
-      <Layout />
+    <div className='w-full '>
+      <ConnectToGISCloudServices />
     </div>
   )
 }
 
 export default ApiConnections
+//  https://api.example.com/v1/users?role=admin&status=active&region=us-west-1
+

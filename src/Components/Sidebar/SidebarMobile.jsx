@@ -71,9 +71,9 @@ function SidebarMobile() {
             {/* Lower Part Icons (Theme Toggle, Notifications, Help) */}
             <div className="flex justify-end items-center space-x-2 mt-3">
                 {/* Theme Toggle */}
-                <button onClick={handleThemeToggle} className="flex items-center gap-2">
+               {/*  <button onClick={handleThemeToggle} className="flex items-center gap-2">
                     {theme === 'dark' ? <Sun className="w-6 h-6 text-ourGreen" /> : <Moon className="w-6 h-6 text-ourGreen" />}
-                </button>
+                </button> */}
 
                 {/* Notifications */}
                 <div className="relative">

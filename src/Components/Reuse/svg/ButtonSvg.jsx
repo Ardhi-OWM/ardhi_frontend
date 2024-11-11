@@ -42,7 +42,7 @@ const ButtonSvg = ({ white }) => (
 );
 // Add PropTypes to validate the `white` prop
 ButtonSvg.propTypes = {
-  white: PropTypes.bool.isRequired,  // `white` is expected to be a boolean and is required
+  white: PropTypes.bool,  // `white` is expected to be a boolean and is required
 };
 
 export default ButtonSvg;
