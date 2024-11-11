@@ -15,21 +15,30 @@ const Layout = ({ children }) => {
         setHideHeaderFooter(location.pathname === '/login' || location.pathname === '/logout');
     }, [location.pathname]);
 
-    /*    useEffect(() => {
-           const shouldHide = location.pathname === '/login' || location.pathname === '/logout';
-           console.log("Pathname:", location.pathname, "Hide Header/Footer:", shouldHide);
-           setHideHeaderFooter(shouldHide);
-       }, [location.pathname]); */
-
-
     return (
         <div className="flex flex-col min-h-screen md:overflow-hidden">
-            {!hideHeaderFooter && <Header  />}
-            <main className={`flex-grow overflow-y-auto ${!hideHeaderFooter ? 'pt-16' : ''}`}>
+            {!hideHeaderFooter && 
+            ( <header className="fixed top-0 left-0 w-full h-16 shadow-md z-[9999]"
+                style={{
+                    backgroundColor: 'var(--background-color)',
+                }}
+            >
+                <Header />
+            </header>
+            )}
+            <main className={`flex-grow overflow-y-auto mb-10 sm:mb-0 ${!hideHeaderFooter ? 'pt-16 ' : ''}`}>
                 {/* Add top padding (e.g., 4rem) to avoid overlap with fixed header */}
                 {children}
             </main>
-            {!hideHeaderFooter && <Footer />}
+            {!hideHeaderFooter &&(
+                <footer className="fixed bottom-0 left-0 w-full h-16 shadow-md z-10"
+                style={{
+                    backgroundColor: 'var(--background-color)',
+                }}
+                >
+                    <Footer />
+                </footer>
+            )}
         </div>
     );
 

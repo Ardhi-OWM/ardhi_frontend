@@ -18,13 +18,11 @@ const ViewAnalytics = () => {
     ];
 
     return (
-        // <div className="view-analytics-container flex flex-row mt-5 mx-auto max-w-screen-lg">
-        <div className="view-analytics-container flex-col  sm:flex-row justify-center mx-auto max-w-screen-lg">
+        <div className="view-analytics-container flex flex-col sm:flex-row justify-center mx-auto max-w-screen-lg">
             {buttons.map((button) => (
                 <Button
                     key={button.id}
-                    className="flex items-center mb-4 sm:mb-0 sm:ml-4 px-4 py-2 mx-20 w-1/3 "  
-                    // TODO: Add href to the button
+                    className="flex items-center mb-4 sm:mb-0 sm:ml-4 px-4 py-2 mx-4 w-full sm:w-1/3 lg:w-auto"  
                     href="https://ardhi.de/"
                     white={false}
                 >
@@ -37,8 +35,8 @@ const ViewAnalytics = () => {
                 </Button>
             ))}
         </div>
-
     );
+    
 };
 
 export default ViewAnalytics;

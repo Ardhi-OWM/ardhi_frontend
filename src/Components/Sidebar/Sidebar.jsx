@@ -70,7 +70,7 @@ function Sidebar() {
             </div>
 
             {/* ---------------------------------------  Sidebar Components lower part --------------------------------------- */}
-            <div className="relative p-4 space-y-4 flex flex-col mt-auto mb-20">
+            <div className="relative p-4 space-y-4 flex flex-col mt-auto mb-40">
             {/* Theme Change Button with Icon */}
                 <div className="mb-4 flex items-center">
                     <button
@@ -80,13 +80,13 @@ function Sidebar() {
                     >
                         {theme === 'dark' ? (
                             <>
-                                <Sun className="w-4 h-4 " />
-                                To Light Mode
+                                <Sun className="w-4 h-4  text-ourGreen" />
+                                <span className=" hidden sm:inline ">To Light Mode </span>
                             </>
                         ) : (
                             <>
-                                <Moon className="w-4 h-4 " />
-                                To Dark Mode
+                                <Moon className="w-4 h-4 text-ourGreen" />
+                                <span className="hidden sm:inline  ">To Dark Mode </span>
                             </>
                         )}
                     </button>
@@ -97,7 +97,7 @@ function Sidebar() {
                     <div className="mb-4 relative">
                         <button className="relative flex cursor-pointer" onClick={handleBellClick}>
                             <Bell className="text-ourGreen" />
-                            <span className="ml-2">Notifications</span>
+                            <span className="ml-2 hidden sm:inline  ">Notifications</span>
                             {hasNewNotifications && (
                                 <span className="absolute top-0 right-0 bg-red-500 rounded-full h-3 w-3"></span>
                             )}
@@ -146,7 +146,7 @@ function Sidebar() {
                         onClick={() => window.open('https://ardhi.slab.com/posts/help-page-idwmu284?shr=_TwiAyo7tThV4H3IWU7pmshx', '_blank')}
                     >
                         <BadgeHelp className="text-ourGreen" />
-                        <span className="ml-2">Help</span>
+                        <span className="ml-2 hidden sm:inline">Help</span>
                     </button>
 
                 </div>

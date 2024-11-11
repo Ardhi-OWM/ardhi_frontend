@@ -2,6 +2,7 @@ import React from 'react';
 import MapComponent from './MapArea/MapComponent';
 import Sidebar from './Sidebar/Sidebar';
 import ViewAnalytics from './ViewAnalytics';
+import History from './History/History';
 
 function Dashboard() {
     return (
@@ -19,6 +20,9 @@ function Dashboard() {
 
                     {/* ViewAnalytics - Ensure it's visible below MapComponent */}
                     <ViewAnalytics />
+
+                    {/* History - Ensure it's visible below ViewAnalytics */}
+                    <History />
                 </div>
             </div>
         </div>
