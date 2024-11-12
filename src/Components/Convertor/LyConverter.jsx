@@ -14,15 +14,19 @@ const LyConverter = () => {
     const [formats, setFormats] = useState(['GeoJSON', 'CSV', 'HTML']);
     const [showDropdown, setShowDropdown] = useState(false);
     const [newFormat, setNewFormat] = useState('GeoJSON');
+    const [alertMessage, setAlertMessage] = useState('');
 
     const handleAddNewFormat = () => {
         if (newFormat && !formats.includes(newFormat)) {
             setFormats((prevFormats) => {
-                const updatedFormats = [newFormat, ...prevFormats.slice(0, 2)]; // Add new format and keep only the last 3 formats
+                const updatedFormats = [newFormat, ...prevFormats.slice(0, 2)];
                 return updatedFormats;
             });
-            setSelectedFormat(newFormat); // Set the newly added format as selected
-            setShowDropdown(false); // Hide the dropdown
+            setSelectedFormat(newFormat);
+            setShowDropdown(false);
+            setAlertMessage('');
+        } else {
+            setAlertMessage(`The format "${newFormat}" is already available.`);
         }
     };
 
@@ -76,7 +80,32 @@ const LyConverter = () => {
                     </div>
                 ))}
             </div>
-            <div className="flex flex-col md:flex-row justify-center items-center space-y-5 md:space-x-4 mt-10">
+            {/* <div className="flex flex-col md:flex-row justify-center items-center space-y-5 md:space-x-4 mt-10">
+                <div className="w-full flex justify-center">
+                    <Button
+                        className="w-2/3 md:w-1/2 "
+                        onClick={() => setShowDropdown(!showDropdown)}
+                    >
+                        Add New Format
+                    </Button>
+                </div>
+                <div className="w-full flex justify-center">
+                    <Button
+                        className="w-2/3 md:w-1/2"
+                        onClick={() => handleConvert(selectedFormat)}
+                    >
+                        Convert
+                    </Button>
+                </div>
+            </div> */}
+            {/* ---------------------------------------------alertMessage --------------------------------------------------- */}
+
+            {alertMessage && (
+                <div className="mt-4 p-2 bg-red-500 text-white rounded">
+                    {alertMessage}
+                </div>
+            )}
+            <div className="flex flex-col md:flex-row justify-center items-center space-y-5 md:space-x-4">
                 <div className="w-full flex justify-center">
                     <Button
                         className="w-2/3 md:w-1/2 "
@@ -94,6 +123,7 @@ const LyConverter = () => {
                     </Button>
                 </div>
             </div>
+            {/* ---------------------------------------------showDropdown --------------------------------------------------- */}
 
             {showDropdown && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-4">
@@ -117,7 +147,7 @@ const LyConverter = () => {
                         </button>
                     </div>
                 </div>
-            )}
+            )} 
 
         </div>
     );
