@@ -15,10 +15,6 @@ const LyConverter = () => {
     const [showDropdown, setShowDropdown] = useState(false);
     const [newFormat, setNewFormat] = useState('GeoJSON');
 
-    /* const handleAddNewFormat = () => {
-        addNewFormat(formats, setFormats, newFormat);
-        setShowDropdown(false); // Hide dropdown after selection
-    }; */
     const handleAddNewFormat = () => {
         if (newFormat && !formats.includes(newFormat)) {
             setFormats((prevFormats) => {
@@ -60,12 +56,12 @@ const LyConverter = () => {
             </div>
 
 
-            <h2 className="text-base md:text-xl font-bold mb-4 underline-offset-4 underline">Choose the output format</h2>
+            <h2 className="text-base md:text-xl font-bold mb-4 mt-6 underline-offset-4 underline ">Choose the output format</h2>
             {/* Add format selection and convert button here */}
             <div>
                 {formats.map((format) => (
-                    <div key={format} 
-                    className="mb-4 p-3 border border-gray-300/[0.50] rounded-lg flex items-center bg-gray-300/[0.25]">
+                    <div key={format}
+                        className="mb-4 p-3 border border-gray-300/[0.50] rounded-lg flex items-center bg-gray-300/[0.25]">
                         <label>
                             <input
                                 type="radio"
@@ -100,40 +96,28 @@ const LyConverter = () => {
             </div>
 
             {showDropdown && (
-                <div className="mt-4 w-full md:w-1/2 mx-auto">
-                    <select
-                        value={newFormat}
-                        onChange={(e) => setNewFormat(e.target.value)}
-                        className="border p-2 rounded w-full "
-                    >
-                        {availableFormats.map((format) => (
-                            <option key={format} value={format} className="bg-gray-800 ">
-                                {format}
-                            </option>
-                        ))}
-                    </select>
-                    <button
-                        className="mt-2 w-full bg-ourGreen/[0.50] py-2 rounded"
-                        onClick={handleAddNewFormat}
-                    >
-                        Confirm Format Selection
-                    </button>
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-4">
+                    <div className="w-full max-w-xs md:max-w-md bg-gray-900 p-4 rounded-lg">
+                        <select
+                            value={newFormat}
+                            onChange={(e) => setNewFormat(e.target.value)}
+                            className="border border-gray-500 p-2 rounded w-full text-white bg-gray-800"
+                        >
+                            {availableFormats.map((format) => (
+                                <option key={format} value={format} className="bg-gray-800 text-white">
+                                    {format}
+                                </option>
+                            ))}
+                        </select>
+                        <button
+                            className="mt-4 w-full bg-ourGreen/[0.50] py-2 rounded text-white hover:bg-ourGreen/[0.75]"
+                            onClick={handleAddNewFormat}
+                        >
+                            Confirm Format Selection
+                        </button>
+                    </div>
                 </div>
             )}
-
-
-            {/* <div className="flex flex-col md:flex-row justify-center items-center space-y-5 md:space-x-4">
-                <div className="w-full flex justify-center">
-                    <Button className="w-2/3 md:w-1/2">
-                        Add New Format
-                    </Button>
-                </div>
-                <div className="w-full flex justify-center">
-                    <Button className="w-2/3 md:w-1/2">
-                        Convert
-                    </Button>
-                </div>
-            </div> */}
 
         </div>
     );
