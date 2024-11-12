@@ -64,8 +64,8 @@ export default function ConnectToGISCloudServices() {
 
   return (
     <div className="p-4 md:p-8 min-h-screen">
-      <h1 className="text-xl md:text-4xl font-bold mb-2">Connect to GIS Cloud Services</h1>
-      <p className="mb-4 text-sm md:text-base">
+      <h1 className="text-xl md:text-4xl font-bold mb-2 tracking-wide">Connect to GIS Cloud Services</h1>
+      <p className="mb-4 text-sm md:text-base ">
         Use Ardhi to connect to your cloud services and easily visualize your analysis.
         You can also use Ardhi for your on-premise data sources and cloud services.
       </p>

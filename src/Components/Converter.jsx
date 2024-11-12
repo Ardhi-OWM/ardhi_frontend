@@ -1,8 +1,11 @@
 import React from 'react'
+import LyConverter from './Convertor/LyConverter'
 
 const Converter = () => {
   return (
-    <div>Converter</div>
+    <div>
+      <LyConverter />
+    </div>
   )
 }
 

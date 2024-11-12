@@ -73,3 +73,16 @@ export const initialCloudServices = [
         account: ' ',
     },
 ]
+
+export const availableFormats = [
+
+    'GeoJSON', 
+    'CSV', 
+    'HTML', 
+    'KML', 
+    'Shapefile', 
+    'XML', 
+    'PDF', 
+    'Excel'
+
+];

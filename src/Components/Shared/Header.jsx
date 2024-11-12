@@ -23,7 +23,7 @@ const Header = () => {
     return (
         <header className="w-full fixed top-0 left-0 z-50 border-b border-gray-500/[.25] py-2 shadow-lg">
             <div className="wrapper flex justify-between items-center">
-                <Link to="/" className="w-36">
+                <Link to="/" className="w-36 ml-4">
                     <img src={transparentLogo}
                         alt="Color ardhi"
                         style={{ width: "auto", height: "auto" }}
